@@ -1,0 +1,25 @@
+#+TITLE: Text Rendering
+
+* Introductions
+** [[https://faultlore.com/blah/text-hates-you/][Text Rendering Hates You - Faultlore]]
+** [[https://mrandri19.github.io/2019/07/24/modern-text-rendering-linux-overview.html][Modern text rendering with Linux: Overview | Home]]
+** [[https://behdad.org/text2024/][State of Text Rendering 2024]]
+
+* With OpenGL
+** [[https://learnopengl.com/In-Practice/Text-Rendering][LearnOpenGL - Text Rendering]]
+
+* BIDI
+** [[https://www.w3.org/International/articles/inline-bidi-markup/uba-basics][Unicode Bidirectional Algorithm basics]]
+
+* FreeType
+** [[https://freetype.org/freetype2/docs/tutorial/index.html][FreeType Tutorial]]
+** [[https://stackoverflow.com/questions/40657431/setting-character-size-in-freetype][freetype2 - Setting Character Size in FreeType - Stack Overflow]]
+
+* HarfBuzz
+** [[https://harfbuzz.github.io/a-simple-shaping-example.html][A simple shaping example: HarfBuzz Manual]]
+** [[https://harfbuzz.github.io/integration-freetype.html][FreeType integration: HarfBuzz Manual]]
+** [[https://github.com/hexops/mach/blob/9148754b7600fb0ab34dace4cfa328b9f105ea08/src/gfx/font/native/Font.zig][mach's font module]]
+
+* Units
+** [[http://designwithfontforge.com/en-US/The_EM_Square.html][Design With FontForge: The EM Square]]
+** [[https://www.sony.com/electronics/support/articles/00027623][What is the difference between Dots Per Inch (DPI) and Pixels Per Inch (PPI)? | Sony USA]]

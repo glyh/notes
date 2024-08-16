@@ -1,0 +1,3 @@
+#+TITLE: HiDPI
+* Links
+** [[https://tgui.eu/tutorials/latest-stable/dpi-scaling/][TGUI: DPI awareness and scaling]]

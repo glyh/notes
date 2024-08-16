@@ -1,0 +1,56 @@
+#+TITLE: Binding as Sets of Scopes
+* [[https://www-old.cs.utah.edu/plt/scope-sets/][Binding as Sets of Scopes - Notes on a new model of macro expansion for Racket]]
+
+* Notes
+** Finding superset may be solved by [[org:Algorithms/Strings/DASG.org][Directed Acyclic Subsequence Graph]]. Not sure yet, but here's a sketch to the algorithm:
+1. Obtain all symbols of type symbol name and scope set;
+2. Classify symbols by their name, for each name:
+   1. Classify the symbols into use-site symbols and definition-site symbols;
+   2. For each use-site symbols, sort the scope set into a sequence, throw those sequences into subsequence automata;
+   3. Sort the definition-site symbols by the size of their scope set, and for each of them in order:
+      1. query the subsequence automata, and...
+
+** Scopes Sets for Pattern-Based Macros
+*** Scope Sets
+A scope corresponds to a binding context, every identifier in a program has a set of scopes, let's call the scopes corresponding to a symbol $A$ to be $S(A)$. Any symbol can either be a binding or a bounded.
+*** Resolving a bounded to a binding
+To resolve a bounded $A$, we find a binding $B$, s.t. $S(A) \subseteq S(B), \forall B \neq C, S(A) \subseteq S(C), S(B) \subset S(C)$. If we can't find one, there's an error.
+*** Scoping Rules
+1. Lexical scopes: For each binding special forms (e.g. ~let~ and ~lambda~), we create a scope, add it to both the body position and the binding symbol. For any symbols inside the body, their scope set inherit both the new scope and outer scopes.
+2. intro, Differentiation of Macro-Generated and Non-Macro-Generated Symbols: For each macro expansion, we inherit the scope set from macro definition site and add a unique scope for all generated symbols.
+3. Recursive Definition: If a definition is recursive(e.g. ~letrec~ and ~letrec-syntax~), we add that scope to the binding value(i.e. rhs), in addition to adding the scope to the body position and the binding symbol.
+4. bdy, Differentiation of Macro-defintion body and macro-use site syntax objects: For each macro expansion, we only add a unique scope to any symbols inside of the macro expansion body, rather than macro-use site sytnax objects.
+5. NO Macro-Generated Definitions: We must remove any additional scopes occuring in the macro-generated define statement. So that we may refer to a macro generated symbol from outside.
+6. 4 and 5 may conflict, and we then can have ambiguous references, but it's not encountered in practice. See "2.5 Ambiguous References" of the original paper.
+** NO Scopes Sets for Procedural Macros and Modules
+*** Primitives for Macros
+We have a primitive ~quote-syntax~ that converts a form to a syntax object. It preserves the scope set.
+*** Identifier Comparison
+**** ~free-identifier=?~ checks whether 2 identifiers would resolve to the same binding
+**** ~bound-identifier=?~ checks whether 2 identifiers have the exact same scope sets, independent of the binding tables
+  Might give false negative result if you use it to answer the question whether the 2 woud resolve to a same binding.
+*** Local Bindings and Syntax Quoting
+We need to additionally discard some scopes from the syntax-quoted forms so that we don't differentiate the symbols that should have been the same. For example:
+#+BEGIN_SRC racket
+(lambda (stx)
+  (let ([id #'x])
+     #`(let ([x 1])
+         #,id)))
+#+END_SRC
+Which expands to below:
+#+BEGIN_SRC
+(lambda (stx{alam})
+  (let ([id{alam, blet} #'x{alam}])
+     #`(let ([x{alam, blet} 1])
+         #,id{alam, blet})))
+#+END_SRC
+$id^{a_{lam}, b_{let}}$ will then be replaced by $x^{a_{lam}}$ which doesen't resolve to the $x^{a_{lam}, b_{let}}$.
+A solution is to prune some scopes. But the essay claims that without this being implemented, the macro system should be working just fine generally.
+*** Ensuring Distinct Binding
+Support of `make-scopeless`
+*** First Class Definition Context
+"Racket exposes the expander’s support for definition contexts (see Use-Site Scopes and Macro-Generated Definitions) so that new macros can support definition contexts while potentially changing the meaning of a macro or variable definition."
+*** TODO Rename Transformers
+*** TODO Modules and Phases
+*** TODO The Top Level
+*** TODO The Syntax-Function Zoo

@@ -1,0 +1,7 @@
+#+TITLE: Macros
+
+* Papers
+** [[org:Macros/notes_binding_as_sets_of_scope.org][Binding as Sets of Scopes]]
+** [[file:~/Documents/EBooks/Macros/Macros_for_Domain-Specific_Languages_1692938660073_0.pdf][Macros for Domain-Specific Languages]]
+** [[file:~/Documents/EBooks/Macros/gpce12-rf.pdf][Honu: Syntactic Extension for Algebraic Notation through Enforestation]]
+** [[file:~/Documents/EBooks/Macros/Type_Systems_as_Macros_1692938661611_0.pdf][Type Systems as Macros]]

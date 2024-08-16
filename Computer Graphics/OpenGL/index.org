@@ -1,0 +1,7 @@
+#+title: OpenGL
+
+* Tutorial
+** [[https://learnopengl.com/][Learn OpenGL, extensive tutorial resource for learning Modern OpenGL]]
+
+* Demos
+** [[https://github.com/glyh/learnopengl-zig][glyh/learnopengl-zig: Learn OpenGL demos implemented with zgl and mach-glfw!]]

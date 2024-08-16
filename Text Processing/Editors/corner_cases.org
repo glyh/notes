@@ -1,0 +1,9 @@
+#+TITLE: Text Editor Hates You - Corner Cases for Implementation of Text Editors
+
+* Inconsistent between visual and real text
+- Folds
+- TODO comments highlighter
+- Conceal of some common phrases, e.g. \lambda.
+
+* Notes Mode
+** May allow arbitrary folding, and foldings can span inside a line or across multiple lines.

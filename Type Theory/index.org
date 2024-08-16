@@ -1,0 +1,41 @@
+#+TITLE: Type Theory
+
+* Textbooks
+** TODO [[org:Type Theory/notes_TS&PF.org][Type Theory and Formal Proof]]
+** TODO [[org:Type Theory/notes_T&PL.org][Types and Programming Languages]]
+** [[file:~/Documents/EBooks/Type Theory/Benjamin_C._Pierce_-_Advanced_topics_in_types_and_programming_languages-MIT_Press_(2005)_1692938471404_0.pdf][Advanced Topics in Types and Programming Languages - Benjamin C. Pierce]]
+** [[file:~/Documents/EBooks/Type Theory/category_theory_for_programmers_1692970017287_0.pdf][Category Theory for Programmers - Bartosz Milewski]]
+
+* Papers
+** [[file:~/Documents/EBooks/Type Theory/A_Theory_of_Qualified_Types_1692933117929_0.pdf][A Theory of Qualified Types]]
+** [[file:~/Documents/EBooks/Type Theory/LIPIcs-ECOOP-2023-18_1692938496761_0.pdf][Programming with Purity Reflection: Peaceful Coexistence of Effects, Laziness and Parallelism - Magnus Madsen]]
+
+* Notes
+** [[file:~/Documents/EBooks/Type Theory/type-notes.pdf][EECS 3/496 Type Systems - Notes]]
+
+* Representation
+** De Brujin index
+Eliminates the need of \alpha-conversion for closed lambda terms. For example, $\lambda x.\lambda y.\lambda z. xz$ is represented as $\lambda \lambda \lambda 3 1 (2 1)$
+
+* Type Inference
+** Hindley Milner
+*** [[https://github.com/glyh/wyah/blob/master/lib/type_inference.ml][My implementation in WYAH]]
+*** [[file:~/Documents/EBooks/Type Theory/hindley-milner_1692937056030_0.pdf][The Hindley-Milner Type Inference Algorithm - Ian Grant]]
+*** DONE [[https://cs3110.github.io/textbook/chapters/interp/inference.html][9.6. Type Inference — OCaml Programming: Correct + Efficient + Beautiful]]
+*** DONE Type Checking & Type Inference - CS 4410/6410: Compiler Design
+- [[https://course.ccs.neu.edu/cs4410/lec_type-checking_notes.html][Lecture 16: Type Checking]]
+- [[https://course.ccs.neu.edu/cs4410/lec_type-inference_notes.html][Lecture 17: Type Inference]]
+*** DONE [[https://pfudke.wordpress.com/2014/11/20/hindley-milner-type-inference-a-practical-example-2/][Hindley-Milner Type Inference: A Practical Example | pfudke]]
+*** [[https://www.reddit.com/r/ProgrammingLanguages/comments/ijij9o/beyond_hindleymilner_but_keeping_principal_types/][Beyond Hindley-Milner (but Keeping Principal Types) - r/Programming Languages]]
+
+* Type System
+** Dependent Types
+*** DONE [[https://gist.github.com/Hirrolot/27e6b02a051df333811a23b97c375196][How to implement dependent types in 80 lines of code]]
+*** [[https://github.com/AndrasKovacs/elaboration-zoo][AndrasKovacs/elaboration-zoo: Minimal implementations for dependent type checking and elaboration]]
+*** [[https://davidchristiansen.dk/tutorials/nbe/][Checking Dependent Types with Normalization by Evaluation: A Tutorial]]
+*** [[http://lambda-the-ultimate.org/node/5587][Turnstile+: Dependent Type Systems as Macros | Lambda the Ultimate]]
+
+* Random
+*** [[https://www.mbid.me/posts/type-checking-with-eqlog-polymorphism/][Type Checking with Eqlog: Polymorphism]]
+*** [[https://jaked.org/blog/2021-09-07-Reconstructing-TypeScript-part-0][Reconstructing TypeScript, part 0: intro and background]]
+*** [[https://www.reddit.com/r/ProgrammingLanguages/comments/13c53kf/what_are_the_current_hot_topics_in_type_theory/][What are the current hot topics in type theory and static analysis? - r/ProgrammingLanguages]]

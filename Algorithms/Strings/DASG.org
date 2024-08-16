@@ -1,0 +1,9 @@
+#+TITLE: Directed Acyclic Subsequence Graph
+
+* What problem does it solves?
+Testing whether a pattern is a subsequence of a string
+
+* Resources
+** [[https://125-problems.univ-mlv.fr/problem51.php][CLR: Subsequence Automaton]]
+** [[file:~/Documents/EBooks/Algorithms/String/1-s2.0-S1570866703000297-main.pdf][Directed acyclic subsequence graph—Overview]]
+** [[file:~/Documents/EBooks/Algorithms/String/Directed_Acyclic_Subsequence_Graph_for_multiple_te.pdf][Directed Acyclic Subsequence Graph for multiple texts]]

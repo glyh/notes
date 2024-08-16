@@ -1,0 +1,12 @@
+#+title: Computer Graphics
+* [[org:Computer Graphics/Text Rendering/index.org][Text Rendering]]
+* [[org:Computer Graphics/OpenGL/index.org][OpenGL]]
+
+* Other APIs
+** Wrappers
+*** [[https://github.com/floooh/sokol][floooh/sokol: minimal cross-platform standalone C headers]]
+**** [[https://floooh.github.io/2017/07/29/sokol-gfx-tour.html][A Tour of sokol_gfx.h]]
+*** [[https://github.com/bkaradzic/bgfx][bkaradzic/bgfx: Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library.]]
+
+* Courses
+** [[https://tamats.com/learn/realtime-graphics/][Modern Real-time Graphics with Javi Agenjo]]

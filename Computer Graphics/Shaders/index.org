@@ -1,0 +1,6 @@
+#+TITLE: Shaders
+
+* GLSL(OpenGL)
+* WGSL(WebGPU)
+* SPIRV
+** [[https://xol.io/blah/the-trouble-with-spirv/][The trouble with SPIR-V, 2022 edition - Gob's blog]]

@@ -1,0 +1,93 @@
+#+TITLE: Type Theory and Formal Proof
+
+* Textbook Resources
+** [[file:~/Documents/EBooks/Type Theory/type_theory_and_formal_proof_1692940943017_0.pdf][Type Theory and Formal Proof - Rob Nederpel]]
+
+* Chapter 2: Terms Depending on Terms, Simply Typed Lambda Calculus $\lambda_\to$
+** Let $\mathbb{V}$ be the set of *type variables*
+** Set $\mathbb{T}$ of all simple types
+Type variables: $\alpha \in V \implies \alpha \in \mathbb{T}$; Arrow type: $\sigma, \tau \in V \implies \sigma \to \tau \in \mathbb{T}$
+Abstract Syntax: $\mathbb{T} = \mathbb{V} | \mathbb{T} \to \mathbb{V}$
+** Pre-typed \lambda-terms, $\Lambda_\mathbb{T}$
+$\Lambda_\mathbb{T} = V | (\Lambda_\mathbb{T} \Lambda_\mathbb{T}) | (\lambda V : \mathbb{T}.\Lambda_\mathbb{T})$
+** Derivation rules for $\lambda_\to$
+var:  $x: \sigma \in \Gamma \implies \Gamma \vdash x: \sigma$
+appl:  $\Gamma \vdash M: \sigma \to \tau, \Gamma \vdash N: \sigma \implies \Gamma \vdash MN: \tau$
+abst: $\Gamma, x: \sigma \vdash M: \tau \implies \Gamma \vdash \lambda x: \sigma. M : \sigma \to \tau$
+** Problems in Type Theory
+*** Well-typedness (Typeability)
+$$
+? \vdash term : ?
+$$
+*** Type Assignment
+$$
+context \vdash term :?
+$$
+*** Type Checking
+$$
+context \overset{?}{\vdash} term:type
+$$
+*** Term Finding
+$$
+\emptyset \vdash ?: type
+$$
+
+* Chapter 3: Terms Depending on Types, Second Order Typed Lambda Calculus $\lambda2$, a.k.a let-polymorphism
+** Set $\mathbb{T}2$ of types in $\lambda2$, $\mathbb{T}2 = \mathbb{V} | (\mathbb{T}2\to\mathbb{T}2) | (\Pi \mathbb{V}:*.\mathbb{T}2)$
+** Set of\lambda-terms, $\Lambda_{\mathbb{T}_2} = V | (\Lambda_{\mathbb{T}_2} \Lambda_{\mathbb{T}_2}) | (\lambda V: \mathbb{T}2.\Lambda_{\mathbb{T}_2}) | (\lambda V: *.\Lambda_{\mathbb{T}_2})$
+** \lambda2-context (domain, dom)
+1. $\emptyset$ is a \lambda2-context, $dom(\emptyset) = ()$
+2. $\Gamma$ is a \lambda2-context, $\alpha \in \mathbb{V} - dom(\Gamma) \implies \Gamma, \alpha: *$ is a \lambda2-context, $dom(\Gamma, \alpha: *) = (dom(\Gamma), x)$
+3. $\Gamma$ is a \lambda2-context, $\rho \in \mathbb{T}2, \forall \alpha \in \rho, \alpha \in dom(\Gamma), x \notin dom(\Gamma) \implies \Gamma, x: \rho$ is a \lambda2-context
+** Derivation rules for $\lambda2$
+var:  $x: \sigma \in \Gamma \implies \Gamma \vdash x: \sigma$
+appl:  $\Gamma \vdash M: \sigma \to \tau, \Gamma \vdash N: \sigma \implies \Gamma \vdash MN: \tau$
+abst: $\Gamma, x: \sigma \vdash M: \tau \implies \Gamma \vdash \lambda x: \sigma. M : \sigma \to \tau$
+form: $\Gamma \vdash B: *$, if \Gamma is a \lambda2-context, $B \in \mathbb{T}_2$ and all free type variables in B are declared in $\Gamma$
+appl2: $\Gamma \vdash M: \Pi\alpha: *.A, \Gamma \vdash B: * \implies \Gamma \vdash MB: A[\alpha:=B]$
+abst2: $\Gamma, \alpha: * \vdash M: A \implies \Gamma \vdash \lambda \alpha: *. M: \Pi \alpha: *.A$
+
+
+* Chapter 4: Types Depending on Types, $\lambda\underline{\omega}$
+** Set $\mathbb{K}$ of types of types $\mathbb{K} = * | \mathbb{K} \to \mathbb{K}$
+** Type of kinds $\square$: $\forall \kappa \in \mathbb{K}, \kappa: \square$
+** Constructors, proper constructor, sort
+constructor: $M: \kappa: \square \implies M$ is a constructor
+proper constructors: $\forall \kappa: \square \neq *$
+the set of sorts: $\{*, \square \}$
+meta-variable $s$ is a element of set of sorts
+** Levels
+Level 1: $\Gamma$;
+Level 2: $\mathbb{T}$ (types and proper constructors);
+Level 3: $\mathbb K$;
+Level 4: $\{\square\}$;
+** Derivation rules
+sort: $\emptyset \vdash *: \square$
+var:  $\forall x \notin \Gamma, \Gamma \vdash A: s \implies \Gamma, x: A \vdash x: A$
+weak:  $\forall x \notin \Gamma, \Gamma \vdash A: B, \Gamma \vdash C: s \implies \Gamma, x: C \vdash A: B$
+form: $\Gamma \vdash A: s, \Gamma \vdash B: s \implies \Gamma \vdash A \to B: s$
+appl: $\Gamma \vdash M: A \to B, \Gamma \vdash N: A \implies \Gamma \vdash MN: B$
+abst: $\Gamma, x: A \vdash M: B, \Gamma \vdash A \to B: s \implies \Gamma \vdash \lambda x: A.M: A \to B$
+conv: $\forall B=_\beta B', \Gamma \vdash A: B, \Gamma \vdash B': s \implies \Gamma \vdash A: B'$
+
+* Chapter 5: Types Depending on Terms: $\lambda P$
+** Derivation rules
+sort: $\emptyset \vdash *: \square$
+var:  $\forall x \notin \Gamma, \Gamma \vdash A: s \implies \Gamma, x: A \vdash x: A$
+weak:  $\forall x \notin \Gamma, \Gamma \vdash A: B, \Gamma \vdash C: s \implies \Gamma, x: C \vdash A: B$
+form: $\Gamma \vdash A: *, \Gamma, x: A \vdash B: s \implies \Gamma \vdash \Pi x: A.B: s$
+appl: $\Gamma \vdash M: \Pi x: A.B, \Gamma \vdash N: A \implies \Gamma \vdash MN: B[x:= N]$
+abst $\Gamma, x: A \vdash M: B, \Gamma \vdash \Pi x: A.B: s \implies \Gamma \vdash \lambda x: A.M: \Pi x: A.B$
+conv $\forall B=_\beta B', \Gamma \vdash A: B, \Gamma \vdash B': s \implies \Gamma \vdash A: B'$
+
+* Chapter 6: Types/Terms Depending on Types/Terms: Calculus of Constructions: $\lambda C$
+** Expressions of $\lambda C, \mathcal{E}$
+$\mathcal{E} = V | \square | * | (\mathcal{E}\mathcal{E}) | \lambda V: \mathcal{E}. \mathcal{E})$
+** Derivation rules
+sort: $\emptyset \vdash *: \square$
+var:  $\forall x \notin \Gamma, \Gamma \vdash A: s \implies \Gamma, x: A \vdash x: A$
+weak: $\forall x \notin \Gamma, \Gamma \vdash A: B, \Gamma \vdash C: s \implies \Gamma, x: C \vdash A: B$
+form: $\Gamma \vdash A: s_1, \Gamma, x: A \vdash B: s_2 \implies \Gamma \vdash \Pi x: A.B: s_2$
+appl: $\Gamma \vdash M: \Pi x: A.B, \Gamma \vdash N: A \implies \Gamma \vdash MN: B[x:= N]$
+abst $\Gamma, x: A \vdash M: B, \Gamma \vdash \Pi x: A.B: s \implies \Gamma \vdash \lambda x: A.M: \Pi x: A.B$
+conv $\forall B=_\beta B', \Gamma \vdash A: B, \Gamma \vdash B': s \implies \Gamma \vdash A: B'$

@@ -1,0 +1,4 @@
+#+TITLE: Blogs
+
+* Aug 2024
+** Everything is eventually going to be Turing-Complete

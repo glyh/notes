@@ -1,0 +1,7 @@
+#+TITLE: OCaml
+
+* Libraries
+** Parsing
+- [[https://ocaml.org/manual/5.2/lexyacc.html][OCaml - Lexer and parser generators (ocamllex, ocamlyacc)]]
+- [[https://gallium.inria.fr/~fpottier/menhir/][Menhir]]
+- [[https://github.com/hbr/fmlib][hbr/fmlib: Functional Monadic Library for Ocaml]]

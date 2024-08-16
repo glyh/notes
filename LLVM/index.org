@@ -1,0 +1,31 @@
+#+TITLE: LLVM
+* LLVM IR
+** [[https://mcyoung.xyz/2023/08/01/llvm-ir/][A Gentle Introduction to LLVM IR · mcyoung]]
+** [[https://llvm.org/docs/GetElementPtr.html][The Often Misunderstood GEP Instruction — LLVM 20.0.0git documentation]]
+** Characteristics
+- SSA
+- Uses virtual registers to leave out the register allocation issue
+- Abstracts away the issue of call convention
+
+* Introductions
+** DONE [[https://llvm.org/docs/tutorial/][Kaleidoscope: Implementing a Language with LLVM]]
+** DONE [[https://mukulrathi.com/create-your-own-programming-language/llvm-ir-cpp-api-tutorial/][A Complete Guide to LLVM for Programming Language Creators]]
+Hacker News: [[https://news.ycombinator.com/item?id=25539797][A Complete Guide to LLVM for Programming Language Creators | Hacker News]]
+** [[https://lowlevelbits.org/how-to-learn-compilers-llvm-edition/][How to learn compilers: LLVM Edition - Low Level Bits]]
+
+* LLVM with OCaml
+** [[https://www.wzdftpd.net/blog/ocaml-llvm-01.html][OCaml LLVM bindings tutorial - Pollux's corner]]
+** [[https://llvm.moe/ocaml/][LLVM OCaml Binding Document]]
+** [[https://gist.github.com/zehnpaard/3ade589b7171dba6da96991c9eb19711][Minimal OCaml LLVM JIT example]]
+** [[https://github.com/adamrk/llvm-ocaml-tutorial][adamrk/llvm-ocaml-tutorial: The LLVM tutorial using OCaml]]
+** [[https://github.com/glyh/simple_llvm][glyh/simple_llvm: A simple C-like language with LLVM as backend.]]
+*** TODO Implement Pointers
+
+* LLVM with C
+** [[https://www.pauladamsmith.com/blog/2015/01/how-to-get-started-with-llvm-c-api.html][How to get started with the LLVM C API · Paul Smith]]
+
+* MLIR
+** [[https://mlir.llvm.org/docs/Tutorials/Toy/Ch-1/][Chapter 1: Toy Language and AST - MLIR]]
+
+* Q&A
+** [[https://www.reddit.com/r/ProgrammingLanguages/comments/8ggx2n/is_llvm_a_good_backend_for_functional_languages/][Is LLVM a good backend for Functional languages? - r/ProgrammingLanguages]]

@@ -1,0 +1,27 @@
+#+TITLE: Notes on Types and Programming Languages
+
+* Textbook Resources
+** [[file:~/Documents/EBooks/Type Theory/Benjamin_C._Pierce_-_Types_and_Programming_Languages-The_MIT_Press_(2002)_1692938473420_0.pdf][Types and Programming Languages - Benjamin C. Pierce]]
+
+* Chapter 11: Simple Extensions
+** Base Types, i.e. Atomic Types
+** Unit Type
+** Sequencing
+** Ascription
+** Let Bindings
+** Pairs, i.e. 2-Tuple
+** Tuples
+** Records
+** Sums
+*** Sums and Uniqueness of Types
+** Variants
+*** Options
+*** Enumerations
+*** Single-Field Variants
+*** Variants vs Datatypes
+*** Variants as Disjont Unions
+*** Type Dynamic
+** General Recursion
+*** Lists
+* Chpater 12: Normalization
+Normalizabe: The evaluation of a well-typed program is guaranteed to halt in a finite number of steps
